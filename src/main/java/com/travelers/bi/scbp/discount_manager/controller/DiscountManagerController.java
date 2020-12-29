@@ -17,21 +17,11 @@ public class DiscountManagerController {
 	@Autowired
 	private RestTemplate restTemplate;
 	
-	@GetMapping(path="/discounts")
-	@HystrixCommand(fallbackMethod = "callFallback")
+	@GetMapping(path="/")
 	public String retrieveDiscountDetails() {
-		String uri="http://localhost:8082/policy";
-		Policy policy = restTemplate.getForObject(uri, Policy.class);
+		
 		return "success";
 	}
 	
-	 @SuppressWarnings("unused")
-	    private String callFallback() {
-	 
-	        System.out.println("Student Service is down!!! fallback route enabled...");
-	 
-	        return "CIRCUIT BREAKER ENABLED!!! No Response From Student Service at this moment. " +
-	                    " Service will be back shortly - " + new Date();
-	    }
 
 }

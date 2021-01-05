@@ -17,7 +17,7 @@ public class DiscountManagerController {
 	@Autowired
 	private RestTemplate restTemplate;
 	
-	@GetMapping(path="/dicount")
+	@GetMapping(path="/discount")
 	public String retrieveDiscountDetails() {
 		
 		return "success";
